@@ -3,7 +3,7 @@ name: Python
 on:
   push:
     branches: ["feature/*"]
-    paths: ["**/src/**", "**/Dockerfile", "**/requirements-dev.txt"]
+    paths: ["**/src/**", "**/Dockerfile", "**/requirements-dev.txt", "**/requirements.txt"]
 
 
 jobs:
