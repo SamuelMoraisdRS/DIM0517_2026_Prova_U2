@@ -1,5 +1,7 @@
 name: Python
 
+on:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -21,3 +23,14 @@ jobs:
 
       - name: Check
         run: python -m py_compile src/main.py
+
+      - name: Test
+        run: pytest -v
+
+      - name: Build image
+        run: |
+          docker build -t app .
+
+      - name: Run container
+        run: |
+          docker run --name servidor -d -p 8080:8080 app

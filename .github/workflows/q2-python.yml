@@ -1,5 +1,10 @@
 name: Python
 
+on:
+  pull_request:
+    branches: ["develop"]
+    types: [closed]
+
 
 jobs:
   build:
@@ -19,4 +24,8 @@ jobs:
 
       - name: Check
         run: python -m py_compile src/main.py
+
+      - name : Tests
+        run: |
+          pytest -v
 
